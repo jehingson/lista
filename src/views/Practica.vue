@@ -9,7 +9,7 @@
             v-on="on"
             v-if="state.value != 'ALL'"
             :color= state.color
-             @click="changeStatus(state.title)"
+             @click="changeStatus(state.value)"
           >
             {{ state.title }}
             <v-icon right>mdi-chevron-down</v-icon>
@@ -63,57 +63,72 @@ export default {
     ]
   }),
   methods:{
-    changeStatus(title){ 
-      console.log('TITLE',title)
-      if(title === 'dos'){
-      this.lista = [
-      { title: "dos", value: 2, color: '#24ED64'  },
-      { title: "tres", value: 3, color: '#F5DE36' },
-      { title: "cuatro", value: 4, color: '#F213BD' },
-      { title: "cinco", value: 5, color: '#1017DE' },
-      { title: "seis", value: 6, color: '#18182B' },
-      { title: "seven", value: 7, color: '#D434ED' },
-      { title: "ocho", value: 8, color:  '#D434ED' },
-      { title: "nueva", value: 9, color:'#180DEA' },
-      { title: "dies", value: 10, color: '#E06B31' },
-      { title: "once", value: 11, color:  '#72106D' },
-    ]
-    }
-    if(title === 'tres'){
-      this.lista = [
-      { title: "tres", value: 3, color: '#F5DE36' },
-      { title: "cuatro", value: 4, color: '#F213BD' },
-      { title: "cinco", value: 5, color: '#1017DE' },
-      { title: "seis", value: 6, color: '#18182B' },
-      { title: "seven", value: 7, color: '#D434ED' },
-    ]
-    }
-    if(title === 'cuatro'){
-      this.lista = [
-      { title: "cuatro", value: 4, color: '#F213BD' },
-      { title: "cinco", value: 5, color: '#1017DE' },
-      { title: "seis", value: 6, color: '#18182B' },
-      { title: "seven", value: 7, color: '#D434ED' },
-    ]
-    }
-    if(title === 'cinco'){
-      this.lista = [
-      { title: "cinco", value: 5, color: '#1017DE' },
-      { title: "seis", value: 6, color: '#18182B' },
-      { title: "seven", value: 7, color: '#D434ED' },
-    ]
-    }
-    if(title === 'seis'){
-      this.lista = [
-      { title: "seis", value: 6, color: '#18182B' },
-      { title: "seven", value: 7, color: '#D434ED' },
-    ]
-    }
-    if(title === 'seven'){
-      this.lista = [
-      { title: "seven", value: 7, color: '#D434ED' },
-    ]
-    }
+    changeStatus(n){ 
+      console.log('NUMERO',n)
+  this.lista = [];
+    this.items.map(itm => {
+
+      if( itm.value != 'ALL' && itm.value >= n){
+
+        const res = {
+          title: itm.title,
+          value: itm.value,
+          color: itm.color
+        }
+        this.lista.push(res)
+      }
+    })
+
+    //   if(title === 'dos'){
+    //   this.lista = [
+    //   { title: "dos", value: 2, color: '#24ED64'  },
+    //   { title: "tres", value: 3, color: '#F5DE36' },
+    //   { title: "cuatro", value: 4, color: '#F213BD' },
+    //   { title: "cinco", value: 5, color: '#1017DE' },
+    //   { title: "seis", value: 6, color: '#18182B' },
+    //   { title: "seven", value: 7, color: '#D434ED' },
+    //   { title: "ocho", value: 8, color:  '#D434ED' },
+    //   { title: "nueva", value: 9, color:'#180DEA' },
+    //   { title: "dies", value: 10, color: '#E06B31' },
+    //   { title: "once", value: 11, color:  '#72106D' },
+    // ]
+    // }
+    // if(title === 'tres'){
+    //   this.lista = [
+    //   { title: "tres", value: 3, color: '#F5DE36' },
+    //   { title: "cuatro", value: 4, color: '#F213BD' },
+    //   { title: "cinco", value: 5, color: '#1017DE' },
+    //   { title: "seis", value: 6, color: '#18182B' },
+    //   { title: "seven", value: 7, color: '#D434ED' },
+    // ]
+    // }
+    // if(title === 'cuatro'){
+    //   this.lista = [
+    //   { title: "cuatro", value: 4, color: '#F213BD' },
+    //   { title: "cinco", value: 5, color: '#1017DE' },
+    //   { title: "seis", value: 6, color: '#18182B' },
+    //   { title: "seven", value: 7, color: '#D434ED' },
+    // ]
+    // }
+    // if(title === 'cinco'){
+    //   this.lista = [
+    //   { title: "cinco", value: 5, color: '#1017DE' },
+    //   { title: "seis", value: 6, color: '#18182B' },
+    //   { title: "seven", value: 7, color: '#D434ED' },
+    // ]
+    // }
+    // if(title === 'seis'){
+    //   this.lista = [
+    //   { title: "seis", value: 6, color: '#18182B' },
+    //   { title: "seven", value: 7, color: '#D434ED' },
+    // ]
+    // }
+    // if(title === 'seven'){
+    //   this.lista = [
+    //   { title: "seven", value: 7, color: '#D434ED' },
+    // ]
+    // }
+  
   }
 }
 }
