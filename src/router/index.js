@@ -29,7 +29,7 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Practica.vue")
   },
   {
-    path: "/card",
+    path: "/carrito",
     name: "Card",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -37,6 +37,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Card.vue")
   }
+  
 ];
 
 const router = new VueRouter({

@@ -66,10 +66,8 @@ export default {
     changeStatus(n){ 
       console.log('NUMERO',n)
   this.lista = [];
-    this.items.map(itm => {
-
+  this.items.map(itm => {
       if( itm.value != 'ALL' && itm.value >= n){
-
         const res = {
           title: itm.title,
           value: itm.value,
